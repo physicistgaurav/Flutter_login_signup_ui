@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 // import 'package:matrix_link/main.dart';
 import 'package:matrix_link/pages/BottomNavigation.dart';
+import 'package:matrix_link/pages/signup.dart';
 
 class LoginPage extends StatefulWidget {
   static const String routeName = "/login";
@@ -106,7 +107,37 @@ class _LoginPageState extends State<LoginPage> {
                                   horizontal: 25, vertical: 10),
                               textStyle: TextStyle(
                                   fontSize: 25, fontWeight: FontWeight.bold)),
-                        )
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 55.0),
+                          child: Row(
+                            children: [
+                              Text(
+                                "Don't have an account? ",
+                                textAlign: TextAlign.center,
+                              ),
+                              GestureDetector(
+                                child: Text(
+                                  "Create",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      decoration: TextDecoration.underline),
+                                ),
+                                onTap: () {
+                                  formkey.currentState.validate();
+
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => SignupPage()));
+                                },
+                              )
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),
